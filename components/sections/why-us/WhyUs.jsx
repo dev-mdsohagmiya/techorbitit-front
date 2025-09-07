@@ -1,6 +1,9 @@
+"use client";
+
 import { Title } from "@/components/ui/Title";
 import { Card } from "./Card";
 import { Button } from "@/components/ui/Button";
+import { motion } from "framer-motion";
 
 // Random data for Why Us cards
 const whyUsData = [
@@ -31,13 +34,94 @@ const whyUsData = [
 ];
 
 export const WhyUs = () => {
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const titleVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const descriptionVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 20 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        delay: 0.2,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const cardsVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 50 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        delay: 0.4,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const buttonVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        delay: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <div>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
       <div>
-        <div className="flex justify-center">
+        <motion.div className="flex justify-center" variants={titleVariants}>
           <Title text={"Why Us"} />
-        </div>
-        <div className="flex justify-center">
+        </motion.div>
+        
+        <motion.div className="flex justify-center" variants={descriptionVariants}>
           <div className="max-w-[800px] text-center">
             <span className="text-[16px] md:text-[18px] lg:text-[20px] font-[400] text-center leading-relaxed">
               We specialize in delivering durable and innovative fencing
@@ -46,10 +130,25 @@ export const WhyUs = () => {
               <br className="hidden md:block" /> communities.
             </span>
           </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10 mt-6 md:mt-10 lg:mt-16">
-          {whyUsData.map((card) => (
-            <div key={card.id} className="w-full">
+        </motion.div>
+        
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10 mt-6 md:mt-10 lg:mt-16"
+          variants={cardsVariants}
+        >
+          {whyUsData.map((card, index) => (
+            <motion.div 
+              key={card.id} 
+              className="w-full"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ 
+                duration: 0.6, 
+                delay: index * 0.2,
+                ease: "easeOut"
+              }}
+            >
               <Card
                 id={card.id}
                 icon={card.icon}
@@ -57,13 +156,17 @@ export const WhyUs = () => {
                 description={card.description}
                 bgColor={card.bgColor}
               />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-      <div className="flex justify-center pt-6 md:pt-8">
+      
+      <motion.div 
+        className="flex justify-center pt-6 md:pt-8"
+        variants={buttonVariants}
+      >
         <Button text={"Contact Us"} size={"md"} />
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };

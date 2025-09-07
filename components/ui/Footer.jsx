@@ -1,6 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   const {
@@ -22,12 +23,76 @@ export default function Footer() {
     }
   };
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const sectionVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const linkVariants = {
+    hidden: { 
+      opacity: 0, 
+      x: -20 
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const bottomVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        delay: 0.3,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <footer className="bg-[#002B55] text-white p-6 md:p-8 lg:p-12 rounded-[16px] md:rounded-[20px] lg:rounded-[24px] w-full">
+    <motion.footer 
+      className="bg-[#002B55] text-white p-6 md:p-8 lg:p-12 rounded-[16px] md:rounded-[20px] lg:rounded-[24px] w-full"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
       {/* Main Footer Content */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
         {/* Join Our JF Products Section */}
-        <div className="lg:col-span-1">
+        <motion.div className="lg:col-span-1" variants={sectionVariants}>
           <h2 className="text-[20px] md:text-[22px] lg:text-[24px] font-[600] mb-3 md:mb-4">
             Join Our JF Products
           </h2>
@@ -38,7 +103,10 @@ export default function Footer() {
             onSubmit={handleSubmit(onSubmitNewsletter)}
             className="space-y-4"
           >
-            <div>
+            <motion.div
+              whileFocus={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
+            >
               <input
                 type="email"
                 {...register("email", {
@@ -56,11 +124,16 @@ export default function Footer() {
                 }`}
               />
               {errors.email && (
-                <p className="text-red-400 text-[12px] mt-1">
+                <motion.p 
+                  className="text-red-400 text-[12px] mt-1"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
                   {errors.email.message}
-                </p>
+                </motion.p>
               )}
-            </div>
+            </motion.div>
             <div className="flex items-start space-x-3">
               <input
                 id="newsletter"
@@ -78,133 +151,106 @@ export default function Footer() {
               </label>
             </div>
             {errors.newsletter && (
-              <p className="text-red-400 text-[12px]">
+              <motion.p 
+                className="text-red-400 text-[12px]"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
                 {errors.newsletter.message}
-              </p>
+              </motion.p>
             )}
-            <button
+            <motion.button
               type="submit"
               disabled={isSubmitting}
               className="w-full bg-[#b0dd1e] text-black font-[600] py-3 px-6 rounded-[12px] md:rounded-[16px] hover:bg-[#a0c91a] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.2 }}
             >
               {isSubmitting ? "Subscribing..." : "Join Now"}
-            </button>
+            </motion.button>
           </form>
-        </div>
+        </motion.div>
 
         {/* Information Links */}
-        <div className="lg:col-span-1">
+        <motion.div className="lg:col-span-1" variants={sectionVariants}>
           <h3 className="text-[18px] md:text-[20px] lg:text-[22px] font-[600] mb-4 md:mb-6">
             Information
           </h3>
           <ul className="space-y-3 text-[14px] md:text-[15px] lg:text-[16px] text-white/70">
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
+            {["Home", "Shop", "Our Story", "Blogs", "Contact"].map((link, index) => (
+              <motion.li
+                key={link}
+                variants={linkVariants}
+                custom={index}
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
               >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
-              >
-                Shop
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
-              >
-                Our Story
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
-              >
-                Blogs
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
-              >
-                Contact
-              </a>
-            </li>
+                <a
+                  href="#"
+                  className="hover:text-[#b0dd1e] transition-colors duration-300 block"
+                >
+                  {link}
+                </a>
+              </motion.li>
+            ))}
           </ul>
-        </div>
+        </motion.div>
 
         {/* Helpful Links */}
-        <div className="lg:col-span-1">
+        <motion.div className="lg:col-span-1" variants={sectionVariants}>
           <h3 className="text-[18px] md:text-[20px] lg:text-[22px] font-[600] mb-4 md:mb-6">
             Helpful
           </h3>
           <ul className="space-y-3 text-[14px] md:text-[15px] lg:text-[16px] text-white/70">
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
+            {["FAQs", "Terms & Conditions", "Privacy Policy", "Shipping Policy", "My Account"].map((link, index) => (
+              <motion.li
+                key={link}
+                variants={linkVariants}
+                custom={index}
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
               >
-                FAQs
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
-              >
-                Terms & Conditions
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
-              >
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
-              >
-                Shipping Policy
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
-              >
-                My Account
-              </a>
-            </li>
+                <a
+                  href="#"
+                  className="hover:text-[#b0dd1e] transition-colors duration-300 block"
+                >
+                  {link}
+                </a>
+              </motion.li>
+            ))}
           </ul>
-        </div>
+        </motion.div>
       </div>
 
-      <hr className="border-t border-white/20 my-6 md:my-8 lg:my-10" />
+      <motion.hr 
+        className="border-t border-white/20 my-6 md:my-8 lg:my-10"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      />
 
       {/* Bottom Section */}
-      <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+      <motion.div 
+        className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0"
+        variants={bottomVariants}
+      >
         {/* Logo and Branches */}
         <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8">
           {/* Logo */}
-          <div className="bg-white/10 p-3 rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center">
+          <motion.div 
+            className="bg-white/10 p-3 rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center"
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            transition={{ duration: 0.3 }}
+          >
             <img
               src="/logo.png"
               alt="Company Logo"
               className="w-8 h-8 md:w-10 md:h-10 object-contain"
             />
-          </div>
+          </motion.div>
           {/* Branches Text */}
           <div className="text-center md:text-left">
             <span className="text-[12px] md:text-[13px] lg:text-[14px] font-[500] text-white/70 block">
@@ -217,10 +263,15 @@ export default function Footer() {
         </div>
 
         {/* Contact Us Button */}
-        <button className="bg-[#b0dd1e] text-black font-[600] py-3 px-6 md:px-8 rounded-[12px] md:rounded-[16px] hover:bg-[#a0c91a] transition-all duration-300 text-[14px] md:text-[15px] lg:text-[16px]">
+        <motion.button 
+          className="bg-[#b0dd1e] text-black font-[600] py-3 px-6 md:px-8 rounded-[12px] md:rounded-[16px] hover:bg-[#a0c91a] transition-all duration-300 text-[14px] md:text-[15px] lg:text-[16px]"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ duration: 0.2 }}
+        >
           Contact Us
-        </button>
-      </div>
-    </footer>
+        </motion.button>
+      </motion.div>
+    </motion.footer>
   );
 }

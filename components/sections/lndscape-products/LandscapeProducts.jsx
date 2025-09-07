@@ -1,6 +1,9 @@
+"use client";
+
 import { Title } from "@/components/ui/Title";
 import { Card } from "../agricultural-products/Card";
 import ProductEmblaCarousel from "../../ui/ProductEmblaCarousel";
+import { motion } from "framer-motion";
 
 // Dummy landscape product data
 const landscapeProducts = [
@@ -63,11 +66,62 @@ const landscapeProducts = [
 ];
 
 export const LandscapeProducts = () => {
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const titleVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const carouselVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+      scale: 0.95,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        delay: 0.3,
+        ease: "easeOut",
+      },
+    },
+  };
+
   // Create slides for carousel
   const slides = landscapeProducts.map((product) => (
-    <div key={product.id} className="px-2">
+    <motion.div
+      key={product.id}
+      className="px-2"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <Card product={product} />
-    </div>
+    </motion.div>
   ));
 
   const options = {
@@ -80,12 +134,17 @@ export const LandscapeProducts = () => {
   };
 
   return (
-    <div>
-      <div>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      <motion.div variants={titleVariants}>
         <Title text="Landscape Products" />
-      </div>
+      </motion.div>
 
-      <div className="pt-3 md:pt-6 lg:pt-8">
+      <motion.div className="pt-3 md:pt-6 lg:pt-8" variants={carouselVariants}>
         <ProductEmblaCarousel
           slides={slides}
           options={options}
@@ -93,7 +152,7 @@ export const LandscapeProducts = () => {
           startDelay={2000}
           products={landscapeProducts}
         />
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
