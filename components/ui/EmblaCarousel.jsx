@@ -35,27 +35,29 @@ const EmblaCarousel = (props) => {
         </div>
       </div>
 
-      {/* Left Arrow Button */}
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10">
+      {/* Left Arrow Button - positioned within main card width */}
+      <div className="absolute left-[calc(50%-640px+20px)] top-1/2 -translate-y-1/2 z-[9999]">
         <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
       </div>
 
-      {/* Right Arrow Button */}
-      <div className="absolute right-4 top-1/2 -translate-y-1/2 z-10">
+      {/* Right Arrow Button - positioned within main card width */}
+      <div className="absolute right-[calc(50%-640px+20px)] top-1/2 -translate-y-1/2 z-[9999]">
         <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
       </div>
 
-      {/* Dots Navigation */}
-      <div className="embla__dots flex justify-center mt-6">
-        {scrollSnaps.map((_, index) => (
-          <DotButton
-            key={index}
-            onClick={() => onDotButtonClick(index)}
-            className={"embla__dot".concat(
-              index === selectedIndex ? " embla__dot--selected" : ""
-            )}
-          />
-        ))}
+      {/* Dots Navigation - positioned within main card */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[9999]">
+        <div className="embla__dots flex justify-center gap-2">
+          {scrollSnaps.map((_, index) => (
+            <DotButton
+              key={index}
+              onClick={() => onDotButtonClick(index)}
+              className={"embla__dot".concat(
+                index === selectedIndex ? " embla__dot--selected" : ""
+              )}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
