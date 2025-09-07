@@ -26,12 +26,16 @@ export default function Home() {
           <LandscapeProducts />
         </div>
       </div>
-      <div className="max-w-[1280px] m-auto py-10 hidden">
-        <TrustedSection />
+      <div className="w-full px-4 md:px-6 lg:px-0">
+        <div className="max-w-[1280px] m-auto py-6 md:py-8 lg:py-10">
+          <TrustedSection />
+        </div>
       </div>
 
-      <div className="max-w-[1280px] m-auto pt-10 hidden">
-        <WhyUs />
+      <div className="w-full px-4 md:px-6 lg:px-0">
+        <div className="max-w-[1280px] m-auto pt-6 md:pt-8 lg:pt-10">
+          <WhyUs />
+        </div>
       </div>
 
       <div className="hidden">
