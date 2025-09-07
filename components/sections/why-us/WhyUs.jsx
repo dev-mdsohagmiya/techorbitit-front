@@ -37,7 +37,7 @@ export const WhyUs = () => {
         <div className="flex justify-center">
           <Title text={"Why Us"} />
         </div>
-        <div className="flex justify-center px-4 md:px-6 lg:px-0">
+        <div className="flex justify-center">
           <div className="max-w-[800px] text-center">
             <span className="text-[16px] md:text-[18px] lg:text-[20px] font-[400] text-center leading-relaxed">
               We specialize in delivering durable and innovative fencing
@@ -47,7 +47,7 @@ export const WhyUs = () => {
             </span>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 mt-8 md:mt-12 lg:mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10 mt-6 md:mt-10 lg:mt-16">
           {whyUsData.map((card) => (
             <div key={card.id} className="w-full">
               <Card
@@ -61,7 +61,7 @@ export const WhyUs = () => {
           ))}
         </div>
       </div>
-      <div className="flex justify-center pt-8">
+      <div className="flex justify-center pt-6 md:pt-8">
         <Button text={"Contact Us"} size={"md"} />
       </div>
     </div>
