@@ -24,3 +24,89 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Embla Carousel Styles */
+.embla {
+  overflow: hidden;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.embla__slide {
+  flex: 0 0 1280px;
+  min-width: 0;
+  margin: 0 10px;
+}
+
+.embla__controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.embla__buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.embla__button {
+  width: 64px;
+  height: 64px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.embla__button:hover {
+  transform: scale(1.05);
+}
+
+.embla__button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.embla__button__svg {
+  width: 24px;
+  height: 24px;
+  color: #374151;
+}
+
+.embla__dots {
+  display: flex;
+  gap: 8px;
+}
+
+.embla__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #d1d5db;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.embla__dot--selected {
+  background: #3b82f6;
+}
+
+.embla__dot:hover {
+  background: #9ca3af;
+}

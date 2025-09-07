@@ -4,10 +4,8 @@ import "./globals.css";
 const poppins = Poppins({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
-
-
 
 export const metadata = {
   title: "Create Next App",
@@ -17,12 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-
-        className={`${poppins.variable} antialiased max-w-[1280px] m-auto`}
-      >
-        {children}
-      </body>
+      <body className={`${poppins.variable} antialiased `}>{children}</body>
     </html>
   );
 }

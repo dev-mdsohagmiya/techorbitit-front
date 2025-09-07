@@ -1,0 +1,18 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64.000000" height="64.000000" fill="none" customFrame="url(#clipPath_0)">
+	<defs>
+		<clipPath id="clipPath_0">
+			<rect width="64.000000" height="64.000000" x="0.000000" y="0.000000" rx="32.000000" fill="rgb(255,255,255)" transform="matrix(-1,0,0,1,64,0)" />
+		</clipPath>
+		<clipPath id="clipPath_1">
+			<rect width="32.000000" height="32.000000" x="0.000000" y="0.000000" fill="rgb(255,255,255)" transform="matrix(-1,0,0,1,48,16)" />
+		</clipPath>
+	</defs>
+	<rect id="Frame 393" width="64.000000" height="64.000000" x="0.000000" y="0.000000" rx="32.000000" fill="rgb(176,221,29)" transform="matrix(-1,0,0,1,64,0)" />
+	<g id="Frame" clip-path="url(#clipPath_1)" customFrame="url(#clipPath_1)">
+		<rect id="Frame" width="32.000000" height="32.000000" x="0.000000" y="0.000000" fill="rgb(255,255,255)" fill-opacity="0" transform="matrix(-1,0,0,1,48,16)" />
+		<path id="Vector" d="M21.3333 0L0 0" stroke="rgb(26,26,26)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" transform="matrix(-1,0,0,1,42.6665,31.9997)" />
+		<path id="Vector" d="M21.3333 0L0 0" stroke="rgb(0,0,0)" stroke-opacity="0.200000003" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" transform="matrix(-1,0,0,1,42.6665,31.9997)" />
+		<path id="Vector" d="M0.000133514 13.3333C0.000133514 13.3333 6.66667 8.42347 6.66667 6.66667C6.66667 4.90987 0 0 0 0" fill-rule="nonzero" stroke="rgb(26,26,26)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" transform="matrix(-1,0,0,1,27.9995,25.3333)" />
+		<path id="Vector" d="M0.000133514 13.3333C0.000133514 13.3333 6.66667 8.42347 6.66667 6.66667C6.66667 4.90987 0 0 0 0" fill-rule="nonzero" stroke="rgb(0,0,0)" stroke-opacity="0.200000003" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" transform="matrix(-1,0,0,1,27.9995,25.3333)" />
+	</g>
+</svg>
