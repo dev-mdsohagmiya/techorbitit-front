@@ -16,39 +16,31 @@ export default function Home() {
       </div>
       <Hero />
 
-      <div className="w-full px-4 md:px-6 lg:px-0">
-        <div className="max-w-[1280px] m-auto py-6 md:py-8 lg:py-10">
-          <AgriculturalProducts />
-        </div>
+      <div className="max-w-[1280px] m-auto py-10  ">
+        <AgriculturalProducts />
       </div>
-      <div className="w-full px-4 md:px-6 lg:px-0">
-        <div className="max-w-[1280px] m-auto py-6 md:py-8 lg:py-10">
-          <LandscapeProducts />
-        </div>
+      <div className="max-w-[1280px] m-auto py-10 ">
+        <LandscapeProducts />
       </div>
-      <div className="w-full px-4 md:px-6 lg:px-0">
-        <div className="max-w-[1280px] m-auto py-6 md:py-8 lg:py-10">
-          <TrustedSection />
-        </div>
+      <div className="max-w-[1280px] m-auto py-10 ">
+        <TrustedSection />
       </div>
 
-      <div className="w-full px-4 md:px-6 lg:px-0">
-        <div className="max-w-[1280px] m-auto pt-6 md:pt-8 lg:pt-10">
-          <WhyUs />
-        </div>
+      <div className="max-w-[1280px] m-auto pt-10 ">
+        <WhyUs />
       </div>
 
-      <div className="">
+      <div className="hidden">
         <HowWeDoProgress />
       </div>
       <div className="max-w-[1280px] m-auto pt-10">
         <WhyCustomerLoveUs />
       </div>
 
-      <div className="max-w-[1280px] m-auto pt-[220px] hidden">
+      <div className="max-w-[1280px] m-auto pt-8 md:pt-16 lg:pt-[220px]">
         <ContactUS />
       </div>
-      <div className="px-10 py-10 hidden">
+      <div className="px-10 py-10">
         <Footer />
       </div>
     </div>

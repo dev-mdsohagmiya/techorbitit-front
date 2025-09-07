@@ -1,106 +1,226 @@
+"use client";
+
+import { useForm } from "react-hook-form";
+
 export default function Footer() {
-    return (
-        <footer className="bg-[#0D2444] text-white p-8 md:p-12 rounded-3xl w-full ">
-            {/* Main Footer Content */}
-            <div className="flex flex-col md:flex-row md:justify-between space-y-8 md:space-y-0 md:space-x-8 lg:space-x-16">
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm();
 
-                {/* Join Our JF Products Section */}
-                <div className="flex-1">
-                    <h2 className="text-xl font-semibold mb-2">Join Our JF Products</h2>
-                    <p className="text-sm text-gray-400 mb-4">
-                        We'll tell you about store updates and discounts
-                    </p>
-                    <form>
-                        <input
-                            type="email"
-                            placeholder="Enter your email"
-                            className="w-full bg-white/10 text-white placeholder-gray-400 px-4 py-3 rounded-lg border border-transparent focus:border-lime-500 focus:outline-none focus:ring-1 focus:ring-lime-500 transition-colors duration-200 mb-4"
-                        />
-                        <div className="flex items-center mb-6">
-                            <input
-                                id="newsletter"
-                                type="checkbox"
-                                className="w-4 h-4 text-lime-500 bg-gray-100 rounded border-gray-300 focus:ring-lime-500"
-                            />
-                            <label
-                                htmlFor="newsletter"
-                                className="ml-2 text-sm text-gray-400"
-                            >
-                                Yes, subscribe me to your newsletter.
-                            </label>
-                        </div>
-                        <button
-                            type="submit"
-                            className="w-full bg-white text-black font-semibold py-3 rounded-lg shadow-lg hover:bg-gray-100 transition-colors duration-200"
-                        >
-                            Join Now
-                        </button>
-                    </form>
-                </div>
+  const onSubmitNewsletter = async (data) => {
+    try {
+      console.log("Newsletter data:", data);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      alert("Successfully subscribed to newsletter!");
+      reset();
+    } catch (error) {
+      console.error("Error subscribing:", error);
+      alert("Failed to subscribe. Please try again.");
+    }
+  };
 
-                {/* Information Links */}
-                <div className="flex-1 min-w-40">
-                    <h3 className="text-xl font-semibold mb-4">Information</h3>
-                    <ul className="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" className="hover:text-lime-500 transition-colors duration-200">Home</a></li>
-                        <li><a href="#" className="hover:text-lime-500 transition-colors duration-200">Shop</a></li>
-                        <li><a href="#" className="hover:text-lime-500 transition-colors duration-200">Our Story</a></li>
-                        <li><a href="#" className="hover:text-lime-500 transition-colors duration-200">Blogs</a></li>
-                        <li><a href="#" className="hover:text-lime-500 transition-colors duration-200">Contact</a></li>
-                    </ul>
-                </div>
-
-                {/* Helpful Links */}
-                <div className="flex-1 min-w-40">
-                    <h3 className="text-xl font-semibold mb-4">Helpful</h3>
-                    <ul className="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" className="hover:text-lime-500 transition-colors duration-200">FAQs</a></li>
-                        <li><a href="#" className="hover:text-lime-500 transition-colors duration-200">Terms & Conditions</a></li>
-                        <li><a href="#" className="hover:text-lime-500 transition-colors duration-200">Privacy Policy</a></li>
-                        <li><a href="#" className="hover:text-lime-500 transition-colors duration-200">Shipping Policy</a></li>
-                        <li><a href="#" className="hover:text-lime-500 transition-colors duration-200">My Account</a></li>
-                    </ul>
-                </div>
+  return (
+    <footer className="bg-[#002B55] text-white p-6 md:p-8 lg:p-12 rounded-[16px] md:rounded-[20px] lg:rounded-[24px] w-full">
+      {/* Main Footer Content */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        {/* Join Our JF Products Section */}
+        <div className="lg:col-span-1">
+          <h2 className="text-[20px] md:text-[22px] lg:text-[24px] font-[600] mb-3 md:mb-4">
+            Join Our JF Products
+          </h2>
+          <p className="text-[14px] md:text-[15px] lg:text-[16px] text-white/70 mb-4 md:mb-6 leading-relaxed">
+            We'll tell you about store updates and discounts
+          </p>
+          <form
+            onSubmit={handleSubmit(onSubmitNewsletter)}
+            className="space-y-4"
+          >
+            <div>
+              <input
+                type="email"
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Please enter a valid email address",
+                  },
+                })}
+                placeholder="Enter your email"
+                className={`w-full bg-[#FFFFFF1A] text-white placeholder-white/50 px-4 py-3 rounded-[12px] md:rounded-[16px] border transition-all duration-300 focus:outline-none ${
+                  errors.email
+                    ? "border-red-400 focus:border-red-400"
+                    : "border-transparent focus:border-[#b0dd1e]"
+                }`}
+              />
+              {errors.email && (
+                <p className="text-red-400 text-[12px] mt-1">
+                  {errors.email.message}
+                </p>
+              )}
             </div>
-
-            <hr className="border-t border-gray-700 my-8" />
-
-            {/* Bottom Section */}
-            <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-                {/* Logo and Branches */}
-                <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
-                    {/* Logo Placeholder */}
-                    <div className="bg-gray-700 p-2 rounded-full w-12 h-12 flex items-center justify-center">
-                        <svg
-                            className="w-8 h-8 text-white"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
-                            <path
-                                fillRule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 100-20 10 10 0 000 20z"
-                                clipRule="evenodd"
-                            ></path>
-                        </svg>
-                    </div>
-                    {/* Branches Text */}
-                    <div>
-                        <span className="text-sm font-semibold text-gray-400">
-                            Our Branches
-                        </span>
-                        <p className="text-sm font-medium text-gray-300">
-                            Coimbatore, Chennai, Hyderabad, Goa, Kochi
-                        </p>
-                    </div>
-                </div>
-
-                {/* Contact Us Button */}
-                <button className="bg-lime-500 text-black font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-lime-400 transition-colors duration-200">
-                    Contact Us
-                </button>
+            <div className="flex items-start space-x-3">
+              <input
+                id="newsletter"
+                type="checkbox"
+                {...register("newsletter", {
+                  required: "Please accept to continue",
+                })}
+                className="w-4 h-4 text-[#b0dd1e] bg-[#FFFFFF1A] rounded border-white/30 focus:ring-[#b0dd1e] mt-1"
+              />
+              <label
+                htmlFor="newsletter"
+                className="text-[12px] md:text-[13px] lg:text-[14px] text-white/70 leading-relaxed"
+              >
+                Yes, subscribe me to your newsletter.
+              </label>
             </div>
-        </footer>
-    )
+            {errors.newsletter && (
+              <p className="text-red-400 text-[12px]">
+                {errors.newsletter.message}
+              </p>
+            )}
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-[#b0dd1e] text-black font-[600] py-3 px-6 rounded-[12px] md:rounded-[16px] hover:bg-[#a0c91a] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? "Subscribing..." : "Join Now"}
+            </button>
+          </form>
+        </div>
+
+        {/* Information Links */}
+        <div className="lg:col-span-1">
+          <h3 className="text-[18px] md:text-[20px] lg:text-[22px] font-[600] mb-4 md:mb-6">
+            Information
+          </h3>
+          <ul className="space-y-3 text-[14px] md:text-[15px] lg:text-[16px] text-white/70">
+            <li>
+              <a
+                href="#"
+                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
+              >
+                Shop
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
+              >
+                Our Story
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
+              >
+                Blogs
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Helpful Links */}
+        <div className="lg:col-span-1">
+          <h3 className="text-[18px] md:text-[20px] lg:text-[22px] font-[600] mb-4 md:mb-6">
+            Helpful
+          </h3>
+          <ul className="space-y-3 text-[14px] md:text-[15px] lg:text-[16px] text-white/70">
+            <li>
+              <a
+                href="#"
+                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
+              >
+                FAQs
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
+              >
+                Terms & Conditions
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
+              >
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
+              >
+                Shipping Policy
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="hover:text-[#b0dd1e] transition-colors duration-300 block"
+              >
+                My Account
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <hr className="border-t border-white/20 my-6 md:my-8 lg:my-10" />
+
+      {/* Bottom Section */}
+      <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+        {/* Logo and Branches */}
+        <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8">
+          {/* Logo */}
+          <div className="bg-white/10 p-3 rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center">
+            <img
+              src="/logo.png"
+              alt="Company Logo"
+              className="w-8 h-8 md:w-10 md:h-10 object-contain"
+            />
+          </div>
+          {/* Branches Text */}
+          <div className="text-center md:text-left">
+            <span className="text-[12px] md:text-[13px] lg:text-[14px] font-[500] text-white/70 block">
+              Our Branches
+            </span>
+            <p className="text-[13px] md:text-[14px] lg:text-[15px] font-[400] text-white/80">
+              Coimbatore, Chennai, Hyderabad, Goa, Kochi
+            </p>
+          </div>
+        </div>
+
+        {/* Contact Us Button */}
+        <button className="bg-[#b0dd1e] text-black font-[600] py-3 px-6 md:px-8 rounded-[12px] md:rounded-[16px] hover:bg-[#a0c91a] transition-all duration-300 text-[14px] md:text-[15px] lg:text-[16px]">
+          Contact Us
+        </button>
+      </div>
+    </footer>
+  );
 }

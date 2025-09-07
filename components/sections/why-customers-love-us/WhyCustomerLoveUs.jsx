@@ -51,7 +51,7 @@ export const WhyCustomerLoveUs = () => {
             </div>
           </div>
         </div>
-        <div className="lg:col-span-4 bg-[#f2f4f6] rounded-[16px] md:rounded-[20px] lg:rounded-[24px] h-[300px] md:h-[400px] lg:h-full">
+        <div className="lg:col-span-4 bg-[#f2f4f6] rounded-[16px] md:rounded-[20px] lg:rounded-[24px] h-[280px] md:h-[350px] lg:h-full">
           <img
             src="/love/profile.svg"
             className="w-full h-full object-cover rounded-[16px] md:rounded-[20px] lg:rounded-[24px]"
