@@ -9,40 +9,40 @@ import { WhyCustomerLoveUs } from "@/components/sections/why-customers-love-us/W
 import { WhyUs } from "@/components/sections/why-us/WhyUs";
 import Footer from "@/components/ui/Footer";
 export default function Home() {
-  return <div>
+  return (
+    <div>
+      <div className="w-full">
+        <Navbar />
+      </div>
+      <Hero />
 
-    <div className="max-w-[1280px] m-auto">
-      <Navbar />
-    </div>
-    <Hero />
+      <div className="max-w-[1280px] m-auto py-10 hidden ">
+        <AgriculturalProducts />
+      </div>
+      <div className="max-w-[1280px] m-auto py-10 hidden">
+        <LandscapeProducts />
+      </div>
+      <div className="max-w-[1280px] m-auto py-10 hidden">
+        <TrustedSection />
+      </div>
 
-    <div className="max-w-[1280px] m-auto py-10">
-      <AgriculturalProducts />
-    </div>
-    <div className="max-w-[1280px] m-auto py-10">
-      <LandscapeProducts />
-    </div>
-    <div className="max-w-[1280px] m-auto py-10">
-      <TrustedSection />
-    </div>
+      <div className="max-w-[1280px] m-auto pt-10 hidden">
+        <WhyUs />
+      </div>
 
-    <div className="max-w-[1280px] m-auto pt-10">
-      <WhyUs />
-    </div>
+      <div className="">
+        <HowWeDoProgress />
+      </div>
+      <div className="max-w-[1280px] m-auto pt-10 hidden">
+        <WhyCustomerLoveUs />
+      </div>
 
-    <div className="">
-      <HowWeDoProgress />
+      <div className="max-w-[1280px] m-auto pt-[220px] hidden">
+        <ContactUS />
+      </div>
+      <div className="px-10 py-10 hidden">
+        <Footer />
+      </div>
     </div>
-    <div className="max-w-[1280px] m-auto pt-10">
-      <WhyCustomerLoveUs />
-    </div>
-
-    <div className="max-w-[1280px] m-auto pt-[220px]">
-      <ContactUS />
-    </div>
-    <div className="px-10 py-10">
-      <Footer />
-    </div>
-
-  </div>
+  );
 }

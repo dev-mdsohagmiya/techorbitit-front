@@ -30,32 +30,35 @@ export const Hero = () => {
   const slides = slidesData.map((slide) => (
     <div
       key={slide.id}
-      className="h-[670px] grid grid-cols-12 bg-[#f2f4f6] p-5 items-center rounded-[24px] relative"
+      className="h-[400px] md:h-[500px] lg:h-[670px] grid grid-cols-1 lg:grid-cols-12 bg-[#f2f4f6] p-3 md:p-4 lg:p-5 items-center rounded-[16px] md:rounded-[20px] lg:rounded-[24px] relative"
     >
-      <div className="col-span-6 w-full h-full">
+      {/* Image Section */}
+      <div className="col-span-1 lg:col-span-6 w-full h-[200px] md:h-[250px] lg:h-full order-1 lg:order-1">
         <div className="w-full h-full">
-          <div className="bg-[url('/hero/bg.svg')] h-full w-full bg-cover bg-center p-5">
+          <div className="bg-[url('/hero/bg.svg')] h-full w-full bg-cover bg-center p-3 md:p-4 lg:p-5">
             <img
-              className="w-full h-full"
+              className="w-full h-full object-contain"
               src={slide.image}
               alt={slide.title}
             />
           </div>
         </div>
       </div>
-      <div className="col-span-6 flex justify-center items-center p-16">
-        <div className="grid gap-2">
+
+      {/* Content Section */}
+      <div className="col-span-1 lg:col-span-6 flex justify-center items-center p-4 md:p-8 lg:p-16 order-2 lg:order-2">
+        <div className="grid gap-1 md:gap-2 text-center lg:text-left">
           <div>
-            <h1 className="leading-[72px] font-[500] text-[62px] text-[var(--Black, rgba(26, 26, 26, 1))]">
+            <h1 className="leading-[40px] md:leading-[50px] lg:leading-[72px] font-[500] text-[28px] md:text-[40px] lg:text-[62px] text-[var(--Black, rgba(26, 26, 26, 1))]">
               {slide.title}
             </h1>
           </div>
           <div>
-            <span className="text-[24px] font-[400] leading-[32px] text-[var(--Black, rgba(26, 26, 26, 1))]">
+            <span className="text-[16px] md:text-[20px] lg:text-[24px] font-[400] leading-[24px] md:leading-[28px] lg:leading-[32px] text-[var(--Black, rgba(26, 26, 26, 1))]">
               {slide.subtitle}
             </span>
           </div>
-          <div className="pt-10">
+          <div className="pt-4 md:pt-6 lg:pt-10">
             <Button size="md" />
           </div>
         </div>
@@ -73,8 +76,11 @@ export const Hero = () => {
   };
 
   return (
-    <div className="w-full">
-      <div className="mt-8 -translate-y-[45px]" style={{ zIndex: 1 }}>
+    <div className="w-full px-4 md:px-6 lg:px-0">
+      <div
+        className="mt-4 md:mt-6 lg:mt-8 -translate-y-[20px] md:-translate-y-[30px] lg:-translate-y-[45px]"
+        style={{ zIndex: 1 }}
+      >
         <EmblaCarousel slides={slides} options={options} />
       </div>
     </div>
