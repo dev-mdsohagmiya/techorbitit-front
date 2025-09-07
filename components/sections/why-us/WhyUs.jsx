@@ -1,5 +1,6 @@
 import { Title } from "@/components/ui/Title";
 import { Card } from "./Card";
+import { Button } from "@/components/ui/Button";
 
 // Random data for Why Us cards
 const whyUsData = [
@@ -59,6 +60,7 @@ export const WhyUs = () => {
                     ))}
                 </div>
             </div>
+            <div className="flex justify-center pt-8"><Button text={"Contact Us"} size={"md"} /></div>
         </div>
     );
 };
