@@ -3,7 +3,7 @@ import { Form } from "./Form";
 
 export const ContactUS = () => {
   return (
-    <div className="px-4 md:px-6 lg:px-0">
+    <div>
       <div className="border-[1px] border-gray-300 rounded-[16px] md:rounded-[20px] lg:rounded-[24px] relative">
         <div className="absolute -top-[12px] md:-top-[15px] left-4 right-4 flex justify-center z-10">
           <div className="text-[14px] md:text-[16px] font-[500] bg-[#b0dd1e] w-[100px] md:w-[123px] h-[22px] md:h-[25px] cursor-pointer flex items-center justify-center rounded-full">

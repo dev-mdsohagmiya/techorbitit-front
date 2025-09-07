@@ -31,21 +31,22 @@ export const Navbar = () => {
         <div className="md:hidden">
           <button
             onClick={toggleMobileMenu}
-            className="w-8 h-8 flex flex-col justify-center items-center gap-1"
+            className="w-10 h-10 flex flex-col justify-center items-center gap-1.5 p-2 rounded-lg hover:bg-gray-100 transition-all duration-300"
+            aria-label="Toggle mobile menu"
           >
             <div
-              className={`w-6 h-0.5 bg-black transition-transform duration-300 ${
-                isMobileMenuOpen ? "rotate-45 translate-y-1.5" : ""
+              className={`w-6 h-0.5 bg-gray-700 transition-all duration-300 ease-in-out ${
+                isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
               }`}
             ></div>
             <div
-              className={`w-6 h-0.5 bg-black transition-opacity duration-300 ${
-                isMobileMenuOpen ? "opacity-0" : ""
+              className={`w-6 h-0.5 bg-gray-700 transition-all duration-300 ease-in-out ${
+                isMobileMenuOpen ? "opacity-0 scale-0" : ""
               }`}
             ></div>
             <div
-              className={`w-6 h-0.5 bg-black transition-transform duration-300 ${
-                isMobileMenuOpen ? "-rotate-45 -translate-y-1.5" : ""
+              className={`w-6 h-0.5 bg-gray-700 transition-all duration-300 ease-in-out ${
+                isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
               }`}
             ></div>
           </button>
