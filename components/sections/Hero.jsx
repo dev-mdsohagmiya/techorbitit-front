@@ -30,10 +30,10 @@ export const Hero = () => {
   const slides = slidesData.map((slide) => (
     <div
       key={slide.id}
-      className="h-[400px] md:h-[500px] lg:h-[670px] grid grid-cols-1 lg:grid-cols-12 bg-[#f2f4f6] p-3 md:p-4 lg:p-5 items-center rounded-[16px] md:rounded-[20px] lg:rounded-[24px] relative"
+      className="h-[calc(100vh-80px)] md:h-[calc(80vh-100px)] lg:h-[670px] grid grid-cols-1 lg:grid-cols-12 bg-[#f2f4f6] p-2 md:p-3 lg:p-5 items-center rounded-[16px] md:rounded-[20px] lg:rounded-[24px] relative"
     >
       {/* Image Section */}
-      <div className="col-span-1 lg:col-span-6 w-full h-[200px] md:h-[250px] lg:h-full order-1 lg:order-1">
+      <div className="col-span-1 lg:col-span-6 w-full h-[calc(60vh-30px)] md:h-[calc(50vh-40px)] lg:h-full order-1 lg:order-1">
         <div className="w-full h-full">
           <div className="bg-[url('/hero/bg.svg')] h-full w-full bg-cover bg-center p-3 md:p-4 lg:p-5">
             <img
@@ -46,19 +46,19 @@ export const Hero = () => {
       </div>
 
       {/* Content Section */}
-      <div className="col-span-1 lg:col-span-6 flex justify-center items-center p-4 md:p-8 lg:p-16 order-2 lg:order-2">
+      <div className="col-span-1 lg:col-span-6 flex justify-center items-center p-2 md:p-3 lg:p-16 order-2 lg:order-2 h-[calc(40vh-50px)] md:h-[calc(30vh-60px)] lg:h-full">
         <div className="grid gap-1 md:gap-2 text-center lg:text-left">
           <div>
-            <h1 className="leading-[40px] md:leading-[50px] lg:leading-[72px] font-[500] text-[28px] md:text-[40px] lg:text-[62px] text-[var(--Black, rgba(26, 26, 26, 1))]">
+            <h1 className="leading-[32px] md:leading-[40px] lg:leading-[72px] font-[500] text-[22px] md:text-[28px] lg:text-[62px] text-[var(--Black, rgba(26, 26, 26, 1))]">
               {slide.title}
             </h1>
           </div>
           <div>
-            <span className="text-[16px] md:text-[20px] lg:text-[24px] font-[400] leading-[24px] md:leading-[28px] lg:leading-[32px] text-[var(--Black, rgba(26, 26, 26, 1))]">
+            <span className="text-[13px] md:text-[16px] lg:text-[24px] font-[400] leading-[18px] md:leading-[22px] lg:leading-[32px] text-[var(--Black, rgba(26, 26, 26, 1))]">
               {slide.subtitle}
             </span>
           </div>
-          <div className="pt-4 md:pt-6 lg:pt-10">
+          <div className="pt-1 md:pt-2 lg:pt-10">
             <Button size="md" />
           </div>
         </div>

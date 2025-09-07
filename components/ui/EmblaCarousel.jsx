@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 import {
   PrevButton,
@@ -22,6 +22,17 @@ const EmblaCarousel = (props) => {
     onPrevButtonClick,
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
+
+  // Auto-slide functionality
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const autoSlide = setInterval(() => {
+      emblaApi.scrollNext();
+    }, 5000); // 5 seconds
+
+    return () => clearInterval(autoSlide);
+  }, [emblaApi]);
 
   return (
     <section className="embla relative">
@@ -45,9 +56,9 @@ const EmblaCarousel = (props) => {
         <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
       </div>
 
-      {/* Dots Navigation - positioned within main card */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[9999]">
-        <div className="embla__dots flex justify-center gap-2">
+      {/* Dots Navigation - responsive positioning */}
+      <div className="absolute bottom-4 right-4 md:bottom-6 md:left-1/2 md:-translate-x-1/2 z-[9999]">
+        <div className="embla__dots flex flex-col md:flex-row justify-center gap-2">
           {scrollSnaps.map((_, index) => (
             <DotButton
               key={index}
