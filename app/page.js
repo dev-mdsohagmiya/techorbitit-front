@@ -3,6 +3,7 @@ import { AgriculturalProducts } from "@/components/sections/agricultural-product
 import { Hero } from "@/components/sections/Hero";
 import { LandscapeProducts } from "@/components/sections/lndscape-products/LandscapeProducts";
 import { TrustedSection } from "@/components/sections/trusted/TrustedSection";
+import { WhyUs } from "@/components/sections/why-us/WhyUs";
 export default function Home() {
   return <div>
 
@@ -19,6 +20,10 @@ export default function Home() {
     </div>
     <div className="max-w-[1280px] m-auto py-10">
       <TrustedSection />
+    </div>
+
+    <div className="max-w-[1280px] m-auto py-10">
+      <WhyUs />
     </div>
 
   </div>
