@@ -7,6 +7,7 @@ import { LandscapeProducts } from "@/components/sections/lndscape-products/Lands
 import { TrustedSection } from "@/components/sections/trusted/TrustedSection";
 import { WhyCustomerLoveUs } from "@/components/sections/why-customers-love-us/WhyCustomerLoveUs";
 import { WhyUs } from "@/components/sections/why-us/WhyUs";
+import Footer from "@/components/ui/Footer";
 export default function Home() {
   return <div>
 
@@ -38,6 +39,9 @@ export default function Home() {
 
     <div className="max-w-[1280px] m-auto pt-[220px]">
       <ContactUS />
+    </div>
+    <div className="px-10 py-10">
+      <Footer />
     </div>
 
   </div>
