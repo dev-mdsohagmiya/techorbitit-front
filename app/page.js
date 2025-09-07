@@ -40,7 +40,7 @@ export default function Home() {
       <div className="max-w-[1280px] m-auto pt-8 md:pt-16 lg:pt-[220px]">
         <ContactUS />
       </div>
-      <div className="px-10 py-10">
+      <div className="px-4 md:px-6 lg:px-10 py-6 md:py-8 lg:py-10">
         <Footer />
       </div>
     </div>
