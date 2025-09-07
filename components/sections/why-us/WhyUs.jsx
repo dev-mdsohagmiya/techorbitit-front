@@ -47,9 +47,9 @@ export const WhyUs = () => {
   };
 
   const titleVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 30 
+    hidden: {
+      opacity: 0,
+      y: 30,
     },
     visible: {
       opacity: 1,
@@ -62,9 +62,9 @@ export const WhyUs = () => {
   };
 
   const descriptionVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 20 
+    hidden: {
+      opacity: 0,
+      y: 20,
     },
     visible: {
       opacity: 1,
@@ -78,9 +78,9 @@ export const WhyUs = () => {
   };
 
   const cardsVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 50 
+    hidden: {
+      opacity: 0,
+      y: 50,
     },
     visible: {
       opacity: 1,
@@ -94,9 +94,9 @@ export const WhyUs = () => {
   };
 
   const buttonVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 30 
+    hidden: {
+      opacity: 0,
+      y: 30,
     },
     visible: {
       opacity: 1,
@@ -120,8 +120,11 @@ export const WhyUs = () => {
         <motion.div className="flex justify-center" variants={titleVariants}>
           <Title text={"Why Us"} />
         </motion.div>
-        
-        <motion.div className="flex justify-center" variants={descriptionVariants}>
+
+        <motion.div
+          className="flex justify-center"
+          variants={descriptionVariants}
+        >
           <div className="max-w-[800px] text-center">
             <span className="text-[16px] md:text-[18px] lg:text-[20px] font-[400] text-center leading-relaxed">
               We specialize in delivering durable and innovative fencing
@@ -131,22 +134,22 @@ export const WhyUs = () => {
             </span>
           </div>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10 mt-6 md:mt-10 lg:mt-16"
           variants={cardsVariants}
         >
           {whyUsData.map((card, index) => (
-            <motion.div 
-              key={card.id} 
+            <motion.div
+              key={card.id}
               className="w-full"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ 
-                duration: 0.6, 
+              transition={{
+                duration: 0.6,
                 delay: index * 0.2,
-                ease: "easeOut"
+                ease: "easeOut",
               }}
             >
               <Card
@@ -160,8 +163,8 @@ export const WhyUs = () => {
           ))}
         </motion.div>
       </div>
-      
-      <motion.div 
+
+      <motion.div
         className="flex justify-center pt-6 md:pt-8"
         variants={buttonVariants}
       >

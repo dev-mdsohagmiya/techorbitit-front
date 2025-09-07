@@ -18,10 +18,10 @@ export const ContactUS = () => {
   };
 
   const badgeVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: -20,
-      scale: 0.8 
+      scale: 0.8,
     },
     visible: {
       opacity: 1,
@@ -35,9 +35,9 @@ export const ContactUS = () => {
   };
 
   const branchVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 30 
+    hidden: {
+      opacity: 0,
+      y: 30,
     },
     visible: {
       opacity: 1,
@@ -51,9 +51,9 @@ export const ContactUS = () => {
   };
 
   const formVariants = {
-    hidden: { 
-      opacity: 0, 
-      x: -50 
+    hidden: {
+      opacity: 0,
+      x: -50,
     },
     visible: {
       opacity: 1,
@@ -67,10 +67,10 @@ export const ContactUS = () => {
   };
 
   const mapVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       x: 50,
-      scale: 0.95 
+      scale: 0.95,
     },
     visible: {
       opacity: 1,
@@ -91,16 +91,16 @@ export const ContactUS = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
-      <motion.div 
+      <motion.div
         className="border-[1px] border-gray-300 rounded-[16px] md:rounded-[20px] lg:rounded-[24px] relative"
         whileHover={{ scale: 1.005 }}
         transition={{ duration: 0.3 }}
       >
-        <motion.div 
+        <motion.div
           className="absolute -top-[12px] md:-top-[15px] left-4 right-4 flex justify-center z-10"
           variants={badgeVariants}
         >
-          <motion.div 
+          <motion.div
             className="text-[14px] md:text-[16px] font-[500] bg-[#b0dd1e] w-[100px] md:w-[123px] h-[22px] md:h-[25px] cursor-pointer flex items-center justify-center rounded-full"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -113,7 +113,7 @@ export const ContactUS = () => {
         </motion.div>
 
         <div className="pt-12 md:pt-14 lg:pt-16">
-          <motion.div 
+          <motion.div
             className="px-4 md:px-6 lg:px-0"
             variants={branchVariants}
           >
@@ -121,14 +121,14 @@ export const ContactUS = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 p-4 md:p-6 lg:p-10 gap-6 md:gap-8 lg:gap-10">
-            <motion.div 
+            <motion.div
               className="lg:col-span-5 order-1"
               variants={formVariants}
             >
               <Form />
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="lg:col-span-7 w-full order-2"
               variants={mapVariants}
             >

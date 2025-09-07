@@ -36,9 +36,9 @@ export default function Footer() {
   };
 
   const sectionVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 30 
+    hidden: {
+      opacity: 0,
+      y: 30,
     },
     visible: {
       opacity: 1,
@@ -51,9 +51,9 @@ export default function Footer() {
   };
 
   const linkVariants = {
-    hidden: { 
-      opacity: 0, 
-      x: -20 
+    hidden: {
+      opacity: 0,
+      x: -20,
     },
     visible: {
       opacity: 1,
@@ -66,9 +66,9 @@ export default function Footer() {
   };
 
   const bottomVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 30 
+    hidden: {
+      opacity: 0,
+      y: 30,
     },
     visible: {
       opacity: 1,
@@ -82,7 +82,7 @@ export default function Footer() {
   };
 
   return (
-    <motion.footer 
+    <motion.footer
       className="bg-[#002B55] text-white p-6 md:p-8 lg:p-12 rounded-[16px] md:rounded-[20px] lg:rounded-[24px] w-full"
       variants={containerVariants}
       initial="hidden"
@@ -124,7 +124,7 @@ export default function Footer() {
                 }`}
               />
               {errors.email && (
-                <motion.p 
+                <motion.p
                   className="text-red-400 text-[12px] mt-1"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -151,7 +151,7 @@ export default function Footer() {
               </label>
             </div>
             {errors.newsletter && (
-              <motion.p 
+              <motion.p
                 className="text-red-400 text-[12px]"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -179,22 +179,24 @@ export default function Footer() {
             Information
           </h3>
           <ul className="space-y-3 text-[14px] md:text-[15px] lg:text-[16px] text-white/70">
-            {["Home", "Shop", "Our Story", "Blogs", "Contact"].map((link, index) => (
-              <motion.li
-                key={link}
-                variants={linkVariants}
-                custom={index}
-                whileHover={{ x: 5 }}
-                transition={{ duration: 0.2 }}
-              >
-                <a
-                  href="#"
-                  className="hover:text-[#b0dd1e] transition-colors duration-300 block"
+            {["Home", "Shop", "Our Story", "Blogs", "Contact"].map(
+              (link, index) => (
+                <motion.li
+                  key={link}
+                  variants={linkVariants}
+                  custom={index}
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
                 >
-                  {link}
-                </a>
-              </motion.li>
-            ))}
+                  <a
+                    href="#"
+                    className="hover:text-[#b0dd1e] transition-colors duration-300 block"
+                  >
+                    {link}
+                  </a>
+                </motion.li>
+              )
+            )}
           </ul>
         </motion.div>
 
@@ -204,7 +206,13 @@ export default function Footer() {
             Helpful
           </h3>
           <ul className="space-y-3 text-[14px] md:text-[15px] lg:text-[16px] text-white/70">
-            {["FAQs", "Terms & Conditions", "Privacy Policy", "Shipping Policy", "My Account"].map((link, index) => (
+            {[
+              "FAQs",
+              "Terms & Conditions",
+              "Privacy Policy",
+              "Shipping Policy",
+              "My Account",
+            ].map((link, index) => (
               <motion.li
                 key={link}
                 variants={linkVariants}
@@ -224,7 +232,7 @@ export default function Footer() {
         </motion.div>
       </div>
 
-      <motion.hr 
+      <motion.hr
         className="border-t border-white/20 my-6 md:my-8 lg:my-10"
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
@@ -233,14 +241,14 @@ export default function Footer() {
       />
 
       {/* Bottom Section */}
-      <motion.div 
+      <motion.div
         className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0"
         variants={bottomVariants}
       >
         {/* Logo and Branches */}
         <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8">
           {/* Logo */}
-          <motion.div 
+          <motion.div
             className="bg-white/10 p-3 rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center"
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ duration: 0.3 }}
@@ -263,7 +271,7 @@ export default function Footer() {
         </div>
 
         {/* Contact Us Button */}
-        <motion.button 
+        <motion.button
           className="bg-[#b0dd1e] text-black font-[600] py-3 px-6 md:px-8 rounded-[12px] md:rounded-[16px] hover:bg-[#a0c91a] transition-all duration-300 text-[14px] md:text-[15px] lg:text-[16px]"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}

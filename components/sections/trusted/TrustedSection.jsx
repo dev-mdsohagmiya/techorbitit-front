@@ -16,9 +16,9 @@ export const TrustedSection = () => {
   };
 
   const titleVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 30 
+    hidden: {
+      opacity: 0,
+      y: 30,
     },
     visible: {
       opacity: 1,
@@ -31,9 +31,9 @@ export const TrustedSection = () => {
   };
 
   const statsVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 40 
+    hidden: {
+      opacity: 0,
+      y: 40,
     },
     visible: {
       opacity: 1,
@@ -46,9 +46,9 @@ export const TrustedSection = () => {
   };
 
   const statItemVariants = {
-    hidden: { 
-      opacity: 0, 
-      scale: 0.8 
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
     },
     visible: {
       opacity: 1,
@@ -61,9 +61,9 @@ export const TrustedSection = () => {
   };
 
   const backgroundVariants = {
-    hidden: { 
-      opacity: 0, 
-      scale: 0.8 
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
     },
     visible: {
       opacity: 1,
@@ -83,7 +83,7 @@ export const TrustedSection = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
     >
-      <motion.div 
+      <motion.div
         className="bg-[#002B55] relative p-4 md:p-8 lg:p-16 rounded-[12px] md:rounded-[18px] lg:rounded-[24px] overflow-hidden"
         whileHover={{ scale: 1.01 }}
         transition={{ duration: 0.3 }}
@@ -93,19 +93,19 @@ export const TrustedSection = () => {
             Trusted by over 6K+ customers
           </h2>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="flex justify-center pt-4 md:pt-6 lg:pt-10"
           variants={statsVariants}
         >
           <div className="flex flex-col md:flex-row gap-4 md:gap-8 lg:gap-16">
-            <motion.div 
+            <motion.div
               className="flex gap-3 md:gap-4 items-center"
               variants={statItemVariants}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              <motion.div 
+              <motion.div
                 className="w-[50px] h-[50px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px] bg-white rounded-full flex justify-center items-center"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
@@ -129,14 +129,14 @@ export const TrustedSection = () => {
                 </div>
               </div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="flex gap-3 md:gap-4 items-center"
               variants={statItemVariants}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              <motion.div 
+              <motion.div
                 className="w-[50px] h-[50px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px] bg-white rounded-full flex justify-center items-center"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
@@ -161,13 +161,13 @@ export const TrustedSection = () => {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="flex gap-3 md:gap-4 items-center"
               variants={statItemVariants}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              <motion.div 
+              <motion.div
                 className="w-[50px] h-[50px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px] bg-white rounded-full flex justify-center items-center"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
@@ -194,17 +194,17 @@ export const TrustedSection = () => {
           </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="w-[200px] h-[200px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px] rounded-full absolute right-0 left-0 top-16 md:top-24 lg:top-32 m-auto blur-[50px] md:blur-[75px] lg:blur-[100px] bg-[rgba(27,127,225,0.4)]"
           variants={backgroundVariants}
-          animate={{ 
+          animate={{
             scale: [1, 1.1, 1],
-            opacity: [0.4, 0.6, 0.4]
+            opacity: [0.4, 0.6, 0.4],
           }}
-          transition={{ 
+          transition={{
             duration: 4,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         ></motion.div>
       </motion.div>
