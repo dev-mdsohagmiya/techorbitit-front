@@ -1,8 +1,15 @@
-export const Button = (size, text) => {
+export const Button = ({ size, text }) => {
 
 
-    return <div className="cursor-pointer flex justify-center items-center   bg-[#b0dd1e] w-[150px] h-[50px] rounded-[100px]">
-        < span className="text-[18px] font-[500] text-black"> Shop Now</span >
-    </div >
+    if (size === "md") {
+        return <div className="cursor-pointer flex justify-center items-center   bg-[#b0dd1e] w-[150px] h-[50px] rounded-[100px]">
+            < span className="text-[18px] font-[500] text-black"> Shop Now</span >
+        </div >
+    }
+
+    if (size === "sm")
+        return <div className="cursor-pointer flex justify-center items-center   bg-[#b0dd1e] w-[128px] h-[38px] rounded-[100px]">
+            < span className="text-[14px] font-[500] text-black"> Shop Now</span >
+        </div >
 
 }

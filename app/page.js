@@ -1,5 +1,8 @@
 import { Navbar } from "@/components/Navbar";
+import { AgriculturalProducts } from "@/components/sections/agricultural-products/AgriculturalProducts";
 import { Hero } from "@/components/sections/Hero";
+import { LandscapeProducts } from "@/components/sections/lndscape-products/LandscapeProducts";
+import { TrustedSection } from "@/components/sections/trusted/TrustedSection";
 export default function Home() {
   return <div>
 
@@ -7,6 +10,16 @@ export default function Home() {
       <Navbar />
     </div>
     <Hero />
+
+    <div className="max-w-[1280px] m-auto py-10">
+      <AgriculturalProducts />
+    </div>
+    <div className="max-w-[1280px] m-auto py-10">
+      <LandscapeProducts />
+    </div>
+    <div className="max-w-[1280px] m-auto py-10">
+      <TrustedSection />
+    </div>
 
   </div>
 }

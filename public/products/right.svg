@@ -1,0 +1,18 @@
+<svg viewBox="0 0 47 47" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47.000000" height="47.000000" fill="none" customFrame="url(#clipPath_6)">
+	<defs>
+		<clipPath id="clipPath_6">
+			<rect width="47.000000" height="47.000000" x="0.000000" y="0.000000" rx="23.078125" fill="rgb(255,255,255)" />
+		</clipPath>
+		<clipPath id="clipPath_7">
+			<rect width="20.000000" height="20.000000" x="13.500000" y="13.500000" fill="rgb(255,255,255)" />
+		</clipPath>
+	</defs>
+	<rect id="Frame 394" width="47.000000" height="47.000000" x="0.000000" y="0.000000" rx="23.078125" fill="rgb(255,255,255)" />
+	<rect id="Frame 394" width="46.156250" height="46.156250" x="0.421875" y="0.421875" rx="23.078125" stroke="rgb(26,26,26)" stroke-width="0.84375" />
+	<rect id="Frame 394" width="46.156250" height="46.156250" x="0.421875" y="0.421875" rx="23.078125" stroke="rgb(0,0,0)" stroke-opacity="0.200000003" stroke-width="0.84375" />
+	<g id="Frame" clip-path="url(#clipPath_7)" customFrame="url(#clipPath_7)">
+		<rect id="Frame" width="20.000000" height="20.000000" x="13.500000" y="13.500000" fill="rgb(255,255,255)" fill-opacity="0" />
+		<path id="Vector" d="M30.1668 23.4999L16.8335 23.4999" stroke="rgb(0,43,85)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.265625" />
+		<path id="Vector" d="M26.0001 27.6667C26.0001 27.6667 30.1667 24.598 30.1667 23.5C30.1667 22.402 26 19.3334 26 19.3334" fill-rule="nonzero" stroke="rgb(0,43,85)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.265625" />
+	</g>
+</svg>
