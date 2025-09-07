@@ -16,11 +16,15 @@ export default function Home() {
       </div>
       <Hero />
 
-      <div className="max-w-[1280px] m-auto py-10 hidden ">
-        <AgriculturalProducts />
+      <div className="w-full px-4 md:px-6 lg:px-0">
+        <div className="max-w-[1280px] m-auto py-6 md:py-8 lg:py-10">
+          <AgriculturalProducts />
+        </div>
       </div>
-      <div className="max-w-[1280px] m-auto py-10 hidden">
-        <LandscapeProducts />
+      <div className="w-full px-4 md:px-6 lg:px-0">
+        <div className="max-w-[1280px] m-auto py-6 md:py-8 lg:py-10">
+          <LandscapeProducts />
+        </div>
       </div>
       <div className="max-w-[1280px] m-auto py-10 hidden">
         <TrustedSection />
@@ -30,7 +34,7 @@ export default function Home() {
         <WhyUs />
       </div>
 
-      <div className="">
+      <div className="hidden">
         <HowWeDoProgress />
       </div>
       <div className="max-w-[1280px] m-auto pt-10 hidden">

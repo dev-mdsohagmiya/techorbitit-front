@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
+import React, { useEffect, useRef, useState } from "react";
 import {
   PrevButton,
   NextButton,
@@ -9,13 +8,17 @@ import {
 } from "./EmblaCarouselArrowButtons";
 import useEmblaCarousel from "embla-carousel-react";
 
-const EmblaCarousel = (props) => {
-  const { slides, options } = props;
+const ProductEmblaCarousel = (props) => {
+  const {
+    slides,
+    options,
+    autoSlideDelay = 5000,
+    startDelay = 0,
+    products = [],
+  } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const autoSlideRef = useRef(null);
-
-  const { selectedIndex, scrollSnaps, onDotButtonClick } =
-    useDotButton(emblaApi);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const {
     prevBtnDisabled,
@@ -36,7 +39,7 @@ const EmblaCarousel = (props) => {
           emblaApi.scrollNext();
           scheduleNext(); // Schedule the next slide
         }
-      }, 12000); // 12 seconds
+      }, autoSlideDelay); // Use custom delay
     };
 
     scheduleNext();
@@ -51,7 +54,10 @@ const EmblaCarousel = (props) => {
   useEffect(() => {
     if (!emblaApi) return;
 
-    startAutoSlide();
+    // Add initial delay to stagger carousel starts
+    const initialDelay = setTimeout(() => {
+      startAutoSlide();
+    }, startDelay);
 
     // Listen for drag events to reset timer
     const onPointerDown = () => {
@@ -60,12 +66,14 @@ const EmblaCarousel = (props) => {
 
     const onSelect = () => {
       resetAutoSlide();
+      setSelectedIndex(emblaApi.selectedScrollSnap());
     };
 
     emblaApi.on("pointerDown", onPointerDown);
     emblaApi.on("select", onSelect);
 
     return () => {
+      clearTimeout(initialDelay);
       if (autoSlideRef.current) {
         clearTimeout(autoSlideRef.current);
       }
@@ -86,12 +94,15 @@ const EmblaCarousel = (props) => {
   };
 
   const handleDotClick = (index) => {
-    onDotButtonClick(index);
-    resetAutoSlide();
+    if (emblaApi) {
+      emblaApi.scrollTo(index);
+      setSelectedIndex(index);
+      resetAutoSlide();
+    }
   };
 
   return (
-    <section className="embla relative">
+    <section className="embla product-embla relative">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((slide, index) => (
@@ -112,22 +123,37 @@ const EmblaCarousel = (props) => {
         <NextButton onClick={handleNextClick} disabled={nextBtnDisabled} />
       </div>
 
-      {/* Dots Navigation - responsive positioning */}
-      <div className="absolute bottom-4 right-4 md:bottom-6 md:left-1/2 md:-translate-x-1/2 z-[9999]">
-        <div className="embla__dots flex flex-col md:flex-row justify-center gap-2">
-          {scrollSnaps.map((_, index) => (
-            <DotButton
+      {/* Mobile Preview Cards - Show all small cards below on mobile */}
+      <div className="md:hidden mt-4">
+        <div className="flex justify-center gap-1.5 overflow-x-auto pb-2 px-2 scrollbar-hide">
+          {products.map((product, index) => (
+            <div
               key={index}
+              className={`flex-shrink-0 w-12 h-12 rounded-md cursor-pointer transition-all border-2 ${
+                index === selectedIndex
+                  ? "border-[#b0dd1e] scale-105"
+                  : "border-gray-200 opacity-70"
+              }`}
               onClick={() => handleDotClick(index)}
-              className={"embla__dot".concat(
-                index === selectedIndex ? " embla__dot--selected" : ""
-              )}
-            />
+            >
+              <div className="w-full h-full bg-gray-100 rounded-md overflow-hidden">
+                <img
+                  src={product?.image || "/products/card.svg"}
+                  alt={product?.title || "Product preview"}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           ))}
+        </div>
+        <div className="text-center mt-3">
+          <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1.5 rounded-full font-medium">
+            {products.length} products available
+          </span>
         </div>
       </div>
     </section>
   );
 };
 
-export default EmblaCarousel;
+export default ProductEmblaCarousel;
