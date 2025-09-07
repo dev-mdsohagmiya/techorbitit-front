@@ -1,8 +1,12 @@
 export const HowWeDoProgress = () => {
   return (
-    <div className="overflow-hidden">
-      <div className="w-[102vw] -ml-[1vw] overflow-hidden">
-        <img src="/progress.png " className="select-none w-full h-auto" />
+    <div className="overflow-hidden px-4 md:px-6 lg:px-0">
+      <div className="w-full md:w-[102vw] md:-ml-[1vw] overflow-hidden">
+        <img
+          src="/progress.png"
+          className="select-none w-full h-auto"
+          alt="Progress illustration"
+        />
       </div>
     </div>
   );

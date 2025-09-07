@@ -38,10 +38,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="hidden">
+      <div className="">
         <HowWeDoProgress />
       </div>
-      <div className="max-w-[1280px] m-auto pt-10 hidden">
+      <div className="max-w-[1280px] m-auto pt-10">
         <WhyCustomerLoveUs />
       </div>
 
