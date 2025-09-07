@@ -7,6 +7,7 @@ import {
   usePrevNextButtons,
 } from "./EmblaCarouselArrowButtons";
 import useEmblaCarousel from "embla-carousel-react";
+import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
 const ProductEmblaCarousel = (props) => {
   const {
@@ -19,6 +20,8 @@ const ProductEmblaCarousel = (props) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const autoSlideRef = useRef(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [intersectionRef, isIntersecting, hasIntersected] =
+    useIntersectionObserver();
 
   const {
     prevBtnDisabled,
@@ -50,37 +53,45 @@ const ProductEmblaCarousel = (props) => {
     startAutoSlide();
   };
 
-  // Auto-slide functionality
+  // Auto-slide functionality - only when in viewport
   useEffect(() => {
     if (!emblaApi) return;
 
-    // Add initial delay to stagger carousel starts
-    const initialDelay = setTimeout(() => {
-      startAutoSlide();
-    }, startDelay);
+    // Only start auto-slide if the carousel is in the viewport
+    if (isIntersecting) {
+      // Add initial delay to stagger carousel starts
+      const initialDelay = setTimeout(() => {
+        startAutoSlide();
+      }, startDelay);
 
-    // Listen for drag events to reset timer
-    const onPointerDown = () => {
-      resetAutoSlide();
-    };
+      // Listen for drag events to reset timer
+      const onPointerDown = () => {
+        resetAutoSlide();
+      };
 
-    const onSelect = () => {
-      resetAutoSlide();
-      setSelectedIndex(emblaApi.selectedScrollSnap());
-    };
+      const onSelect = () => {
+        resetAutoSlide();
+        setSelectedIndex(emblaApi.selectedScrollSnap());
+      };
 
-    emblaApi.on("pointerDown", onPointerDown);
-    emblaApi.on("select", onSelect);
+      emblaApi.on("pointerDown", onPointerDown);
+      emblaApi.on("select", onSelect);
 
-    return () => {
-      clearTimeout(initialDelay);
+      return () => {
+        clearTimeout(initialDelay);
+        if (autoSlideRef.current) {
+          clearTimeout(autoSlideRef.current);
+        }
+        emblaApi.off("pointerDown", onPointerDown);
+        emblaApi.off("select", onSelect);
+      };
+    } else {
+      // Clear auto-slide when not in viewport
       if (autoSlideRef.current) {
         clearTimeout(autoSlideRef.current);
       }
-      emblaApi.off("pointerDown", onPointerDown);
-      emblaApi.off("select", onSelect);
-    };
-  }, [emblaApi]);
+    }
+  }, [emblaApi, isIntersecting, startDelay]);
 
   // Enhanced button click handlers that reset auto-slide
   const handlePrevClick = () => {
@@ -102,7 +113,7 @@ const ProductEmblaCarousel = (props) => {
   };
 
   return (
-    <section className="embla product-embla relative">
+    <section className="embla product-embla relative" ref={intersectionRef}>
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((slide, index) => (

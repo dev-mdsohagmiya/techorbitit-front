@@ -8,11 +8,14 @@ import {
   usePrevNextButtons,
 } from "./EmblaCarouselArrowButtons";
 import useEmblaCarousel from "embla-carousel-react";
+import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
 const EmblaCarousel = (props) => {
   const { slides, options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const autoSlideRef = useRef(null);
+  const [intersectionRef, isIntersecting, hasIntersected] =
+    useIntersectionObserver();
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi);
@@ -47,19 +50,31 @@ const EmblaCarousel = (props) => {
     startAutoSlide();
   };
 
-  // Auto-slide functionality
+  // Auto-slide functionality - only when in viewport
   useEffect(() => {
     if (!emblaApi) return;
 
-    startAutoSlide();
+    // Only start auto-slide if the carousel is in the viewport
+    if (isIntersecting) {
+      startAutoSlide();
+    } else {
+      // Clear auto-slide when not in viewport
+      if (autoSlideRef.current) {
+        clearTimeout(autoSlideRef.current);
+      }
+    }
 
     // Listen for drag events to reset timer
     const onPointerDown = () => {
-      resetAutoSlide();
+      if (isIntersecting) {
+        resetAutoSlide();
+      }
     };
 
     const onSelect = () => {
-      resetAutoSlide();
+      if (isIntersecting) {
+        resetAutoSlide();
+      }
     };
 
     emblaApi.on("pointerDown", onPointerDown);
@@ -72,7 +87,7 @@ const EmblaCarousel = (props) => {
       emblaApi.off("pointerDown", onPointerDown);
       emblaApi.off("select", onSelect);
     };
-  }, [emblaApi]);
+  }, [emblaApi, isIntersecting]);
 
   // Enhanced button click handlers that reset auto-slide
   const handlePrevClick = () => {
@@ -91,7 +106,7 @@ const EmblaCarousel = (props) => {
   };
 
   return (
-    <section className="embla relative">
+    <section className="embla relative" ref={intersectionRef}>
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((slide, index) => (
