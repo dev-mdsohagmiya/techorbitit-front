@@ -41,7 +41,7 @@ export default function Home() {
       <div className="max-w-[1280px] m-auto px-3 md:px-6 lg:px-0 pt-8 md:pt-16 lg:pt-[130px]">
         <ContactUS />
       </div>
-      <div className="px-3 md:px-6 lg:px-10 py-6 md:py-8 lg:py-10">
+      <div className="px-3 pt-16 md:pt-auto md:px-6 lg:px-10 py-6 md:py-8 lg:py-10">
         <Footer />
       </div>
 
