@@ -136,7 +136,7 @@ export const WhyUs = () => {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10 mt-6 md:mt-10 lg:mt-16"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10 mt-6 md:mt-10 lg:mt-24"
           variants={cardsVariants}
         >
           {whyUsData.map((card, index) => (
