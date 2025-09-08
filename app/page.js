@@ -8,6 +8,7 @@ import { TrustedSection } from "@/components/sections/trusted/TrustedSection";
 import { WhyCustomerLoveUs } from "@/components/sections/why-customers-love-us/WhyCustomerLoveUs";
 import { WhyUs } from "@/components/sections/why-us/WhyUs";
 import Footer from "@/components/ui/Footer";
+import { GoToTop } from "@/components/ui/GoToTop";
 export default function Home() {
   return (
     <div className="overflow-x-hidden">
@@ -43,6 +44,9 @@ export default function Home() {
       <div className="px-3 md:px-6 lg:px-10 py-6 md:py-8 lg:py-10">
         <Footer />
       </div>
+
+      {/* Go to Top Button */}
+      <GoToTop />
     </div>
   );
 }
