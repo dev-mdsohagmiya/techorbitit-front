@@ -27,7 +27,16 @@ export const Form = () => {
   };
 
   return (
-    <div className="bg-[#002b55] rounded-[16px] md:rounded-[20px] lg:rounded-[24px] p-2 md:p-8 lg:p-10">
+    <div className="bg-[#002b55] rounded-[16px] md:rounded-[20px] lg:rounded-[24px] p-2 md:p-8 lg:p-10 relative overflow-hidden">
+      {/* Blur Circle - Bottom Right */}
+      <div
+        className="absolute -bottom-[80px] -right-[80px] w-[297px] h-[297px] rounded-full"
+        style={{
+          filter: "blur(80px)",
+          background:
+            "radial-gradient(circle, rgba(27, 127, 225, 0.8) 0%, rgba(27, 127, 225, 0.5) 40%, rgba(27, 127, 225, 0.2) 80%, rgba(27, 127, 225, 0.05) 100%)",
+        }}
+      />
       <div className="mb-6 md:mb-8">
         <h2 className="text-white font-[500] text-[24px] md:text-[30px] lg:text-[38px]">
           Contact Us

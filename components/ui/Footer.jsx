@@ -83,12 +83,21 @@ export default function Footer() {
 
   return (
     <motion.footer
-      className="bg-[#002B55] text-white p-2 md:p-8 lg:p-12 rounded-[16px] md:rounded-[20px] lg:rounded-[24px] w-full"
+      className="bg-[#002B55] text-white p-2 md:p-8 lg:p-12 rounded-[16px] md:rounded-[20px] lg:rounded-[24px] w-full relative overflow-hidden"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
+      {/* Blur Circle - Bottom Left */}
+      <div
+        className="absolute -bottom-[80px] -left-[80px] w-[297px] h-[297px] rounded-full"
+        style={{
+          filter: "blur(80px)",
+          background:
+            "radial-gradient(circle, rgba(27, 127, 225, 0.8) 0%, rgba(27, 127, 225, 0.5) 40%, rgba(27, 127, 225, 0.2) 80%, rgba(27, 127, 225, 0.05) 100%)",
+        }}
+      />
       {/* Main Footer Content */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
         {/* Join Our JF Products Section */}
