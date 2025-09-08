@@ -30,14 +30,14 @@ export default function Home() {
         <WhyUs />
       </div>
 
-      <div className="hidden">
+      <div className="">
         <HowWeDoProgress />
       </div>
       <div className="max-w-[1280px] m-auto px-2 md:px-6 lg:px-0 pt-10">
         <WhyCustomerLoveUs />
       </div>
 
-      <div className="max-w-[1280px] m-auto px-2 md:px-6 lg:px-0 pt-8 md:pt-16 lg:pt-[220px]">
+      <div className="max-w-[1280px] m-auto px-2 md:px-6 lg:px-0 pt-8 md:pt-16 lg:pt-[130px]">
         <ContactUS />
       </div>
       <div className="px-2 md:px-6 lg:px-10 py-6 md:py-8 lg:py-10">
