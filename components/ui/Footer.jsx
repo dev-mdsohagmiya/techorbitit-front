@@ -172,7 +172,7 @@ export default function Footer() {
             <motion.button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-[#b0dd1e] text-black font-[600] py-3 px-6 rounded-[12px] md:rounded-[16px] hover:bg-[#a0c91a] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-white rounded-[12px] md:rounded-[16px] lg:rounded-[24px] text-black font-[600] py-3 px-6 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.2 }}
@@ -258,14 +258,14 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8">
           {/* Logo */}
           <motion.div
-            className="bg-white/10 p-3 rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center"
+            className="bg-white p-2 md:p-3 rounded-full flex items-center justify-center"
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ duration: 0.3 }}
           >
             <img
-              src="/logo.png"
+              src="/lwhite.svg"
               alt="Company Logo"
-              className="w-8 h-8 md:w-10 md:h-10 object-contain"
+              className="w-[80px] h-[90px] md:w-[100px] md:h-[120px] lg:w-[130px] lg:h-[150px] object-contain"
             />
           </motion.div>
           {/* Branches Text */}
