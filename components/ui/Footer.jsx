@@ -83,7 +83,7 @@ export default function Footer() {
 
   return (
     <motion.footer
-      className="bg-[#002B55] text-white p-6 md:p-8 lg:p-12 rounded-[16px] md:rounded-[20px] lg:rounded-[24px] w-full"
+      className="bg-[#002B55] text-white p-2 md:p-8 lg:p-12 rounded-[16px] md:rounded-[20px] lg:rounded-[24px] w-full"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"

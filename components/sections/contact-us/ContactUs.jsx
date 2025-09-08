@@ -114,13 +114,13 @@ export const ContactUS = () => {
 
         <div className="pt-12 md:pt-14 lg:pt-16">
           <motion.div
-            className="px-4 md:px-6 lg:px-0"
+            className="px-2 md:px-6 lg:px-0"
             variants={branchVariants}
           >
             <Branch />
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 p-4 md:p-6 lg:p-10 gap-6 md:gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 p-2 md:p-6 lg:p-10 gap-6 md:gap-8 lg:gap-10">
             <motion.div
               className="lg:col-span-5 order-1"
               variants={formVariants}

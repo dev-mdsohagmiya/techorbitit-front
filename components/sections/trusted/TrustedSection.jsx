@@ -84,7 +84,7 @@ export const TrustedSection = () => {
       viewport={{ once: true, amount: 0.3 }}
     >
       <motion.div
-        className="bg-[#002B55] relative p-4 md:p-8 lg:p-16 rounded-[12px] md:rounded-[18px] lg:rounded-[24px] overflow-hidden"
+        className="bg-[#002B55] relative p-2 md:p-8 lg:p-16 rounded-[12px] md:rounded-[18px] lg:rounded-[24px] overflow-hidden"
         whileHover={{ scale: 1.01 }}
         transition={{ duration: 0.3 }}
       >

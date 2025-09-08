@@ -127,8 +127,8 @@ const ProductEmblaCarousel = (props) => {
         </div>
       </section>
 
-      {/* Left Arrow Button - responsive positioning */}
-      <div className="absolute left-2 sm:left-4 md:left-[calc(50%-640px+20px)] top-1/2 -translate-y-1/2 z-[9999]">
+      {/* Left Arrow Button - hidden on mobile, visible on desktop */}
+      <div className="hidden md:block absolute left-[calc(50%-640px+20px)] top-1/2 -translate-y-1/2 z-[9999]">
         <div
           onClick={handlePrevClick}
           disabled={prevBtnDisabled}
@@ -138,8 +138,8 @@ const ProductEmblaCarousel = (props) => {
         </div>
       </div>
 
-      {/* Right Arrow Button - responsive positioning */}
-      <div className="absolute right-2 sm:right-4 md:right-[calc(50%-640px+20px)] top-1/2 -translate-y-1/2 z-[9999]">
+      {/* Right Arrow Button - hidden on mobile, visible on desktop */}
+      <div className="hidden md:block absolute right-[calc(50%-640px+20px)] top-1/2 -translate-y-1/2 z-[9999]">
         <button
           onClick={handleNextClick}
           disabled={nextBtnDisabled}

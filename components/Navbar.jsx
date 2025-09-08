@@ -94,7 +94,7 @@ export const Navbar = () => {
       animate="visible"
     >
       <motion.div
-        className="flex justify-between items-center relative py-4 md:py-6 lg:py-10 px-4 md:px-6 lg:px-0 max-w-[1280px] m-auto"
+        className="flex justify-between items-center relative py-4 md:py-6 lg:py-10 px-2 md:px-6 lg:px-0 max-w-[1280px] m-auto"
         style={{ zIndex: 10 }}
       >
         {/* Desktop Navigation - Hidden on mobile */}

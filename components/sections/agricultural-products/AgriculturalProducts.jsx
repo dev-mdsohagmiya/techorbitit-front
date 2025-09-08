@@ -145,7 +145,7 @@ export const AgriculturalProducts = () => {
       </motion.div>
 
       <motion.div
-        className="pt-3 md:pt-6 lg:pt-8 px-4 md:px-8"
+        className="pt-3 md:pt-6 lg:pt-8 px-2 md:px-8"
         variants={carouselVariants}
       >
         <ProductEmblaCarousel

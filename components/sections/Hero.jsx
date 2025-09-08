@@ -189,7 +189,7 @@ export const Hero = () => {
 
   return (
     <motion.div
-      className="w-full px-4 md:px-6 lg:px-0 overflow-hidden"
+      className="w-full px-2 md:px-6 lg:px-0 overflow-hidden"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
