@@ -13,13 +13,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${poppins.variable} antialiased `}>{children}
-
-
-      </body>
-
-
+    <html lang="en" style={{ colorScheme: "light" }}>
+      <body className={`${poppins.variable} antialiased `}>{children}</body>
     </html>
   );
 }

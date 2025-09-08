@@ -27,7 +27,7 @@ This project is a complete conversion of the provided Figma design into a fully 
 
 1. [🎯 Project Description](#project-description)
 2. [🎨 Figma Design Reference](#figma-design-reference)
-3. [🎥 Overview Video](#overview-video)
+3. [🎥 Overview Video (Coming Soon)](#overview-video-coming-soon)
 4. [🚀 How to Run Locally](#how-to-run-locally)
 5. [✨ Core Features](#core-features)
 6. [🎯 Key Sections](#key-sections)
