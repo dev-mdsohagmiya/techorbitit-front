@@ -191,8 +191,8 @@ export default function NotFound() {
           variants={textVariants}
         >
           The page you&apos;re looking for seems to have wandered off into the
-          digital wilderness. Don&apos;t worry, even the best fencing can&apos;t contain
-          our amazing products!
+          digital wilderness. Don&apos;t worry, even the best fencing can&apos;t
+          contain our amazing products!
         </motion.p>
 
         {/* Action Buttons */}

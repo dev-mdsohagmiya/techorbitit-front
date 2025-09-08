@@ -113,25 +113,33 @@ const ProductEmblaCarousel = (props) => {
   };
 
   return (
-    <section className="embla product-embla relative" ref={intersectionRef}>
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
-          {slides.map((slide, index) => (
-            <div className="embla__slide" key={index}>
-              {slide}
-            </div>
-          ))}
+    <div className="relative w-full" ref={intersectionRef}>
+      {/* Carousel Container with overflow hidden */}
+      <section className="embla product-embla">
+        <div className="embla__viewport" ref={emblaRef}>
+          <div className="embla__container">
+            {slides.map((slide, index) => (
+              <div className="embla__slide" key={index}>
+                {slide}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Left Arrow Button - positioned at 50% container width */}
+      <div className="absolute left-[calc(49%-640px+20px)] top-1/2 -translate-y-1/2 z-[9999]">
+
+        <div onClick={handlePrevClick} disabled={prevBtnDisabled} className="w-[47px] h-[47px]">
+          <img src="/products/left.svg" alt="" />
         </div>
       </div>
 
-      {/* Left Arrow Button - positioned within main card width */}
-      <div className="absolute left-[calc(50%-640px+20px)] top-1/2 -translate-y-1/2 z-[9999]">
-        <PrevButton onClick={handlePrevClick} disabled={prevBtnDisabled} />
-      </div>
-
-      {/* Right Arrow Button - positioned within main card width */}
-      <div className="absolute right-[calc(50%-640px+20px)] top-1/2 -translate-y-1/2 z-[9999]">
-        <NextButton onClick={handleNextClick} disabled={nextBtnDisabled} />
+      {/* Right Arrow Button - positioned at 50% container width */}
+      <div className="absolute right-[calc(49%-640px+20px)] top-1/2 -translate-y-1/2 z-[9999]">
+        <button onClick={handleNextClick} disabled={nextBtnDisabled} className="w-[47px] h-[47px]">
+          <img src="/products/right.svg" alt="" />
+        </button>
       </div>
 
       {/* Mobile Preview Cards - Show all small cards below on mobile */}
@@ -140,11 +148,10 @@ const ProductEmblaCarousel = (props) => {
           {products.map((product, index) => (
             <div
               key={index}
-              className={`flex-shrink-0 w-12 h-12 rounded-md cursor-pointer transition-all border-2 ${
-                index === selectedIndex
-                  ? "border-[#b0dd1e] scale-105"
-                  : "border-gray-200 opacity-70"
-              }`}
+              className={`flex-shrink-0 w-12 h-12 rounded-md cursor-pointer transition-all border-2 ${index === selectedIndex
+                ? "border-[#b0dd1e] scale-105"
+                : "border-gray-200 opacity-70"
+                }`}
               onClick={() => handleDotClick(index)}
             >
               <div className="w-full h-full bg-gray-100 rounded-md overflow-hidden">
@@ -163,7 +170,7 @@ const ProductEmblaCarousel = (props) => {
           </span>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

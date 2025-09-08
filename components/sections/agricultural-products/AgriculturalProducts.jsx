@@ -144,7 +144,10 @@ export const AgriculturalProducts = () => {
         <Title text="Agricultural Products" />
       </motion.div>
 
-      <motion.div className="pt-3 md:pt-6 lg:pt-8" variants={carouselVariants}>
+      <motion.div
+        className="pt-3 md:pt-6 lg:pt-8 px-4 md:px-8"
+        variants={carouselVariants}
+      >
         <ProductEmblaCarousel
           slides={slides}
           options={options}
