@@ -27,7 +27,7 @@ export const Form = () => {
   };
 
   return (
-    <div className="bg-[#002b55] rounded-[16px] md:rounded-[20px] lg:rounded-[24px] p-6 md:p-8 lg:p-10">
+    <div className="bg-[#002b55] rounded-[16px] md:rounded-[20px] lg:rounded-[24px] p-2 md:p-8 lg:p-10">
       <div className="mb-6 md:mb-8">
         <h2 className="text-white font-[500] text-[24px] md:text-[30px] lg:text-[38px]">
           Contact Us

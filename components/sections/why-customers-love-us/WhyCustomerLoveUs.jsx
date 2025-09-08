@@ -107,7 +107,7 @@ export const WhyCustomerLoveUs = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 h-auto lg:h-[600px] gap-6 lg:gap-10 pt-7">
         <motion.div
-          className="bg-[#f2f4f6] lg:col-span-8 h-auto lg:h-full flex flex-col gap-8 lg:gap-14 justify-between p-6 md:p-8 lg:p-12 rounded-[16px] md:rounded-[20px] lg:rounded-[24px]"
+          className="bg-[#f2f4f6] lg:col-span-8 h-auto lg:h-full flex flex-col gap-8 lg:gap-14 justify-between p-2 md:p-8 lg:p-12 rounded-[16px] md:rounded-[20px] lg:rounded-[24px]"
           variants={contentVariants}
           whileHover={{ scale: 1.01 }}
           transition={{ duration: 0.3 }}

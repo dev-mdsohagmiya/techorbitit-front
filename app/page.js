@@ -10,7 +10,7 @@ import { WhyUs } from "@/components/sections/why-us/WhyUs";
 import Footer from "@/components/ui/Footer";
 export default function Home() {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <div className="w-full">
         <Navbar />
       </div>

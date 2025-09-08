@@ -97,7 +97,7 @@ export const ContactUS = () => {
         transition={{ duration: 0.3 }}
       >
         <motion.div
-          className="absolute -top-[12px] md:-top-[15px] left-4 right-4 flex justify-center z-10"
+          className="absolute -top-[12px] md:-top-[15px] left-2 right-2 md:left-4 md:right-4 flex justify-center z-10"
           variants={badgeVariants}
         >
           <motion.div

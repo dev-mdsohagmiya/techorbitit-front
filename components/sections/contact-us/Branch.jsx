@@ -11,7 +11,7 @@ export const Branch = () => {
   return (
     <div className="pb-4 md:pb-6 lg:pb-8">
       <div className="flex justify-center items-center">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-wrap gap-4 md:gap-6 lg:gap-10 max-w-full">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-wrap gap-2 md:gap-6 lg:gap-10 max-w-full overflow-hidden">
           {branches.map((branch) => (
             <div
               key={branch.id}
