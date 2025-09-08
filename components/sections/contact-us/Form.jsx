@@ -125,7 +125,7 @@ export const Form = () => {
           )}
         </div>
 
-        <div className="pt-2">
+        <div className="pt-2 md:pt-4 lg:pt-6">
           <Button
             text={isSubmitting ? "Sending..." : "Submit"}
             size={"sm"}

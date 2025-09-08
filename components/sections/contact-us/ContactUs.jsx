@@ -92,7 +92,7 @@ export const ContactUS = () => {
       viewport={{ once: true, amount: 0.2 }}
     >
       <motion.div
-        className="border-[1px] border-gray-300 rounded-[16px] md:rounded-[20px] lg:rounded-[24px] relative"
+        className="border-[1px] border-gray-300 rounded-[16px] md:rounded-[20px] lg:rounded-[24px] lg:pb-10 relative"
         whileHover={{ scale: 1.005 }}
         transition={{ duration: 0.3 }}
       >
@@ -132,14 +132,26 @@ export const ContactUS = () => {
               className="lg:col-span-7 w-full order-2"
               variants={mapVariants}
             >
-              <motion.img
-                className="w-full h-auto select-none cursor-pointer rounded-[12px] md:rounded-[16px] lg:rounded-[20px]"
-                src="/contact/location.svg"
-                alt="Location map"
+              <motion.div
+                className="w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-[12px] md:rounded-[16px] lg:rounded-[20px] overflow-hidden"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
-              />
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2156!2d-74.0059!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a23e28c1191%3A0x49f75d3281df052a!2s150%20Park%20Row%2C%20New%20York%2C%20NY%2010007%2C%20USA!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="JF Products Location"
+                  className="rounded-[12px] md:rounded-[16px] lg:rounded-[20px]"
+                />
+
+              </motion.div>
             </motion.div>
+
           </div>
         </div>
       </motion.div>
