@@ -129,15 +129,22 @@ const ProductEmblaCarousel = (props) => {
 
       {/* Left Arrow Button - positioned at 50% container width */}
       <div className="absolute left-[calc(49%-640px+20px)] top-1/2 -translate-y-1/2 z-[9999]">
-
-        <div onClick={handlePrevClick} disabled={prevBtnDisabled} className="w-[47px] h-[47px]">
+        <div
+          onClick={handlePrevClick}
+          disabled={prevBtnDisabled}
+          className="w-[47px] h-[47px]"
+        >
           <img src="/products/left.svg" alt="" />
         </div>
       </div>
 
       {/* Right Arrow Button - positioned at 50% container width */}
       <div className="absolute right-[calc(49%-640px+20px)] top-1/2 -translate-y-1/2 z-[9999]">
-        <button onClick={handleNextClick} disabled={nextBtnDisabled} className="w-[47px] h-[47px]">
+        <button
+          onClick={handleNextClick}
+          disabled={nextBtnDisabled}
+          className="w-[47px] h-[47px]"
+        >
           <img src="/products/right.svg" alt="" />
         </button>
       </div>
@@ -148,10 +155,11 @@ const ProductEmblaCarousel = (props) => {
           {products.map((product, index) => (
             <div
               key={index}
-              className={`flex-shrink-0 w-12 h-12 rounded-md cursor-pointer transition-all border-2 ${index === selectedIndex
-                ? "border-[#b0dd1e] scale-105"
-                : "border-gray-200 opacity-70"
-                }`}
+              className={`flex-shrink-0 w-12 h-12 rounded-md cursor-pointer transition-all border-2 ${
+                index === selectedIndex
+                  ? "border-[#b0dd1e] scale-105"
+                  : "border-gray-200 opacity-70"
+              }`}
               onClick={() => handleDotClick(index)}
             >
               <div className="w-full h-full bg-gray-100 rounded-md overflow-hidden">
