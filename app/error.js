@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { useEffect } from "react";
+import Image from "next/image";
 
 export default function Error({ error, reset }) {
   useEffect(() => {
@@ -101,9 +102,11 @@ export default function Error({ error, reset }) {
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ duration: 0.3 }}
           >
-            <img
+            <Image
               src="/logo.png"
               alt="JF Products Logo"
+              width={96}
+              height={96}
               className="w-full h-full object-contain"
             />
           </motion.div>

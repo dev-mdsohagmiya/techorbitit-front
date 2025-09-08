@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Loading() {
   // Animation variants
@@ -111,9 +112,11 @@ export default function Loading() {
               ease: "linear",
             }}
           >
-            <img
+            <Image
               src="/logo.png"
               alt="JF Products Logo"
+              width={128}
+              height={128}
               className="w-full h-full object-contain"
             />
           </motion.div>

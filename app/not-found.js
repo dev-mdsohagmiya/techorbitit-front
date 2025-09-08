@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function NotFound() {
   // Animation variants
@@ -129,9 +130,11 @@ export default function NotFound() {
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ duration: 0.3 }}
           >
-            <img
+            <Image
               src="/logo.png"
               alt="JF Products Logo"
+              width={96}
+              height={96}
               className="w-full h-full object-contain"
             />
           </motion.div>
@@ -187,8 +190,8 @@ export default function NotFound() {
           className="text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed"
           variants={textVariants}
         >
-          The page you're looking for seems to have wandered off into the
-          digital wilderness. Don't worry, even the best fencing can't contain
+          The page you&apos;re looking for seems to have wandered off into the
+          digital wilderness. Don&apos;t worry, even the best fencing can&apos;t contain
           our amazing products!
         </motion.p>
 
